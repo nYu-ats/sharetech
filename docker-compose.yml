@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  client:
+    env_file: ./client/.env
+    environment:
+      - ENV=${ENV}
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile.${ENV}
+      args:
+        USER_NAME: root
+        APP_PATH: /sharetech
+    volumes:
+      - ./client:/sharetech
+    command: /bin/sh -l
+    tty: true
+    stdin_open: true
+    mem_limit: 2g
+    ports:
+      - 3030:3030

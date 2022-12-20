@@ -1,0 +1,9 @@
+FROM node:18-slim
+ARG USER_NAME
+ARG APP_PATH
+USER ${USER_NAME}
+WORKDIR ${APP_PATH}
+RUN apt update
+RUN apt-get install -y git
+
+ENTRYPOINT ["./entrypoint.sh"]
