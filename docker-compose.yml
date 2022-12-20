@@ -4,6 +4,11 @@ services:
     env_file: ./client/.env
     environment:
       - ENV=${ENV}
+      - USER_NAME=sharetech
+      - APP_PATH=/sharetech/client
+      - LANG=C.UTF-8
+      - LANGUAGE='en_US:'
+      - WATCHPACK_POLLING=true
     build:
       context: .
       dockerfile: ./client/Dockerfile.${ENV}
