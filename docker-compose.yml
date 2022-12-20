@@ -9,9 +9,9 @@ services:
       dockerfile: ./client/Dockerfile.${ENV}
       args:
         USER_NAME: root
-        APP_PATH: /sharetech
+        APP_PATH: /sharetech/client
     volumes:
-      - ./client:/sharetech
+      - ./:/sharetech
     command: /bin/sh -l
     tty: true
     stdin_open: true
