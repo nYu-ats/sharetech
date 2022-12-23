@@ -1,0 +1,25 @@
+.btn {
+  @apply font-normal;
+  @apply px-4 py-2;
+  @apply rounded;
+  @apply text-white;
+  @apply bg-deepBlue;
+  @apply hover:bg-blue;
+  @apply hover:cursor-pointer;
+  @apply border-none;
+}
+
+.outline{
+  @apply text-black;
+  @apply bg-white;
+  @apply hover:bg-lightBlue;
+}
+
+.large {
+  @apply px-8;
+}
+
+.small {
+  @apply py-1;
+  @apply px-2;
+}

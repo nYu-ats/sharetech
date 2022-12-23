@@ -1,19 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  darkMode: false,
-  purge: {
-    content: ['./src/components/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      // https://purgecss.com/safelisting.html#patterns
-      safelist: {
-        standard: [/^bg-/, /^text-/],
-      },
+  mode: "jit",
+  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    colors: {
+      black: "#2D4664",
+      white: "#FFFFFF",
+      deepBlue: "#005DFF",
+      blue: "#80CEFF",
+      lightBlue: "#BDE3F6",
     },
   },
-  content: [],
-  theme: {
-    extend: {},
-  },
-  plugins: [require('@tailwindcss/forms')],
-}
+  plugins: [require("@tailwindcss/forms")],
+};
