@@ -1,11 +1,15 @@
+const path = require("path");
+
 module.exports = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: [
+    path.resolve(__dirname, "../src/**/*.stories.mdx"),
+    path.resolve(__dirname, "../src/**/*.stories.@(js|jsx|ts|tsx)"),
+  ],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    // 以下tailwind描画のためのaddon
-    "storybook-css-modules-preset",
+    "@storybook/addon-controls",
     {
       name: "@storybook/addon-postcss",
       options: {
@@ -14,6 +18,7 @@ module.exports = {
         },
       },
     },
+    "storybook-addon-next",
   ],
   framework: "@storybook/react",
   core: {
