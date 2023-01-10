@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { NormalButtonProps } from "./NormalButton.type";
-import styles from "./NormalButton.module.css";
+import { CircleButtonProps } from "./CircleButton.type";
+import styles from "./CircleButton.module.css";
 
-const NormalButton: FC<NormalButtonProps> = ({
+const CircleButton: FC<CircleButtonProps> = ({
   type = "button",
   outline = false,
   ...props
@@ -33,4 +33,4 @@ const NormalButton: FC<NormalButtonProps> = ({
   );
 };
 
-export default NormalButton;
+export default CircleButton;

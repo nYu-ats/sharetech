@@ -7,12 +7,13 @@
   @apply hover:bg-blue;
   @apply hover:cursor-pointer;
   @apply border-none;
+  @apply transition duration-300;
 }
 
 .outline{
   @apply text-black;
   @apply bg-white;
-  @apply hover:bg-lightBlue;
+  @apply hover:bg-white !important;
 }
 
 .large {
@@ -20,6 +21,10 @@
 }
 
 .small {
-  @apply py-1;
-  @apply px-2;
+  @apply px-1 py-1 !important;
+}
+
+.disabled{
+  @apply bg-gray !important;
+  @apply hover:cursor-default;
 }
