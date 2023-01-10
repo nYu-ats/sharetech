@@ -1,0 +1,43 @@
+.siteColor{
+    @apply fill-deepBlue;
+}
+
+.black{
+    @apply fill-black;
+}
+
+.white{
+    @apply fill-white;
+}
+
+.lightGray{
+    @apply fill-lightGray;
+}
+
+.strokeSiteColor{
+    @apply stroke-deepBlue;
+}
+
+.strokeBlack{
+    @apply stroke-black;
+}
+
+.strokeWhite{
+    @apply stroke-white;
+}
+
+.strokeLightGray{
+    @apply stroke-lightGray;
+}
+
+.small{
+    @apply w-7;
+}
+
+.normal{
+    @apply w-8;
+}
+
+.large{
+    @apply w-9;
+}
