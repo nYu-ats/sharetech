@@ -1,0 +1,9 @@
+.link {
+    @apply px-1 py-0;
+    @apply text-black;
+    @apply hover:cursor-pointer;
+    @apply no-underline;
+    @apply flex;
+    @apply flex-col;
+    @apply align-middle;
+}

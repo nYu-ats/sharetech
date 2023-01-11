@@ -1,0 +1,31 @@
+.btn{
+    @apply m-0;
+    @apply font-bold;
+    @apply block;
+    @apply relative;
+    @apply hover:cursor-pointer;
+    @apply w-6;
+    @apply h-6;
+}
+
+.humburger{
+    @apply absolute;
+    @apply h-1;
+    @apply w-6;
+    @apply left-0;
+    @apply bg-white;
+    @apply before:absolute;
+    @apply before:block;
+    @apply before:content-[''];
+    @apply before:w-6;
+    @apply before:h-1;
+    @apply before:top-[10px];
+    @apply before:bg-white;
+    @apply after:block;
+    @apply after:absolute;
+    @apply after:content-[''];
+    @apply after:w-6;
+    @apply after:h-1;
+    @apply after:top-5;
+    @apply after:bg-white;
+}
