@@ -1,0 +1,35 @@
+.btn {
+    @apply font-normal;
+    @apply px-1 py-1;
+    @apply w-10;
+    @apply text-white;
+    @apply bg-deepBlue;
+    @apply hover:bg-blue;
+    @apply hover:cursor-pointer;
+    @apply border-none;
+    @apply rounded-full;
+    @apply transition duration-300;
+  }
+
+  .outline{
+    @apply text-black;
+    @apply bg-white;
+    @apply hover:bg-white !important;
+  }
+
+  .large {
+    @apply px-1;
+    @apply py-1;
+    @apply w-11;
+  }
+
+  .small {
+    @apply py-0;
+    @apply px-0;
+    @apply w-7;
+  }
+
+  .disabled{
+    @apply bg-gray !important;
+    @apply hover:cursor-default;
+  }

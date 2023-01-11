@@ -1,0 +1,35 @@
+.tab{
+    @apply w-full;
+}
+
+.tabNames{
+    @apply overflow-scroll;
+    @apply flex;
+    @apply justify-start;
+    @apply flex-nowrap;
+}
+
+.tabName{
+    @apply m-3;
+    @apply font-bold;
+    @apply text-lightGray;
+    @apply hover:cursor-pointer;
+    @apply transition duration-300;
+}
+
+.tabNameActive{
+    @apply text-deepBlue !important;
+    @apply border-b-deepBlue;
+    @apply border-solid;
+    @apply border-b;
+}
+
+.tabContent{
+    @apply m-3;
+}
+
+.contentsloadFailed{
+    @apply text-lightGray;
+    @apply font-bold;
+    @apply text-2xl;
+}

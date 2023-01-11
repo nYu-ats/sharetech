@@ -1,0 +1,41 @@
+.header{
+    @apply w-screen;
+    @apply sticky;
+    @apply top-0;
+    @apply z-10;
+    @apply bg-deepBlue;
+    @apply flex;
+    @apply justify-between;
+    @apply px-8;
+}
+
+.verticalCenterize{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.left{
+    @apply flex;
+    @apply justify-start;
+    @apply h-16;
+}
+
+.right{
+    @apply flex;
+    @apply justify-end;
+}
+
+.siteLogo{
+    @apply mr-2;
+}
+
+.icons{
+    @apply flex;
+    @apply justify-between;
+    @apply mr-4;
+}
+
+.icon{
+    @apply mx-1;
+}
