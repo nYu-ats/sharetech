@@ -1,7 +1,13 @@
-import { Inter } from "@next/font/google";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { Route } from "shared/constants/Routes";
 
-const inter = Inter({ subsets: ["latin"] });
+const Index = () => {
+  const router = useRouter();
+  useEffect(() => {
+    router.replace(Route.myPage);
+  });
+  return null;
+};
 
-export default function Home() {
-  return <></>;
-}
+export default Index;

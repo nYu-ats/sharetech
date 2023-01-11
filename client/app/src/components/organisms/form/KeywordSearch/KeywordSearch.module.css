@@ -1,0 +1,28 @@
+.formContainer{
+    @apply flex;
+    @apply justify-start;
+    @apply border-solid;
+    @apply border-lightGray;
+    @apply border;
+    @apply rounded;
+    @apply w-fit;
+    @apply h-fit;
+    @apply pr-1;
+    @apply bg-white;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.separator{
+    @apply border-solid;
+    @apply border-lightGray;
+    @apply border-r;
+}
+
+.inputWrapper{
+    @apply w-60;
+}

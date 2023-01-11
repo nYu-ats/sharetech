@@ -1,0 +1,39 @@
+.wrapper{
+    @apply w-full;
+    @apply box-content;
+}
+
+.head{
+    @apply flex;
+    @apply justify-start;
+    @apply mb-6;
+}
+
+.headText{
+    @apply text-2xl;
+    @apply font-bold;
+    @apply mr-2;
+}
+
+.plusButton{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.cards{
+    @apply flex;
+    @apply justify-between;
+    @apply flex-wrap;
+}
+
+.card{
+    @apply w-1/2;
+    @apply mb-12;
+    @apply min-w-[360px];
+}
+
+.showMoreBtn{
+    @apply mt-4;
+    @apply text-center;
+}
