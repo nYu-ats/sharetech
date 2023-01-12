@@ -8,4 +8,6 @@ WORKDIR ${APP_PATH}
 RUN apt update
 RUN apt-get install -y git
 
+RUN npm install -g create-next-app@13.0.7
+
 ENTRYPOINT ["./entrypoint.sh"]
