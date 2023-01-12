@@ -1,0 +1,14 @@
+FROM python:3.8.10-slim
+
+ARG USER_NAME
+ARG APP_PATH
+USER ${USER_NAME}
+WORKDIR ${APP_PATH}
+
+RUN apt update
+RUN apt-get install -y git
+
+RUN pip install --upgrade pip setuptools
+RUN pip install pipenv
+
+ENTRYPOINT ["./entrypoint.sh"]
