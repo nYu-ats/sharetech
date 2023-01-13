@@ -1,5 +1,7 @@
 {
-  "editor.rulers": [88],
+  "editor.rulers": [
+    88
+  ],
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.quickSuggestions": {
@@ -13,10 +15,12 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "prettier.enable": true,
-  "prettier.configPath": "./client/app/.prettierrc",
-  "prettier.ignorePath": "./.gitignore",
+  "prettier.configPath": "./app/.prettierrc",
+  "prettier.ignorePath": "./app/.gitignore",
   "eslint.enable": true,
-  "eslint.options": {"overrideConfigFile": "./client/app/.eslintrc.json"},
+  "eslint.options": {
+    "overrideConfigFile": "./app/.eslintrc.json"
+  },
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": "active",
   "css.validate": true,
@@ -69,5 +73,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2
-  },
+  }
 }
