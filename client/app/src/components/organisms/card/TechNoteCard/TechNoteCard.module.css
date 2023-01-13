@@ -45,7 +45,7 @@
     @apply justify-start;
     @apply flex-nowrap;
     @apply overflow-x-scroll;
-    @apply hidden-scrollbar;
+    @layer hidden-scrollbar;
 }
 
 .tag{
