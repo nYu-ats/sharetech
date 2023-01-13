@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+uvicorn = {version = "==0.20.0", extras = ["starndard"]}
+fastapi = "==0.89.1"
+
+[dev-packages]
+flake8 = "*"
+black = "*"
+
+[requires]
+python_version = "3.8"
+python_full_version = "3.8.10"
+
+[scripts]
+dev = "uvicorn main:app --reload"

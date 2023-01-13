@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ ! -e './app' ]; then
+if [ ! -e './shareTech/api' ]; then
   echo "set up application..."
-  npx create-next-app app --ts --eslint --use-npm
+  mkdir shareTech/api
 else
   echo "already set up application"
 fi

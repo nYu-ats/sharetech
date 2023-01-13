@@ -1,9 +1,13 @@
 FROM node:18-slim
+
 ARG USER_NAME
 ARG APP_PATH
 USER ${USER_NAME}
 WORKDIR ${APP_PATH}
+
 RUN apt update
 RUN apt-get install -y git
+
+RUN npm install -g create-next-app@13.0.7
 
 ENTRYPOINT ["./entrypoint.sh"]
