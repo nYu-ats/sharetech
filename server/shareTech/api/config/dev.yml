@@ -1,0 +1,25 @@
+logging:
+  version: 1
+  formatters:
+    default:
+      format: "[%(asctime)s][%(filename)s][%(funcName)s][%(process)d][%(name)s]: %(message)s"
+  handlers:
+    file:
+      class: logging.handlers.RotatingFileHandler
+      level: DEBUG
+      formatter: default
+      filename: ./api/log/app.log
+      encoding: utf-8
+      maxBytes: 100000
+      backupCount: 10
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: default
+      stream: ext://sys.stdout
+  loggers:
+    shareTech:
+      name: shareTech
+      level: DEBUG
+      handlers: [file, console]
+      propagate: false
