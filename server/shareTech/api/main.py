@@ -1,21 +1,24 @@
 import os
 
+from api.core.context import app_context
+from api.core.context.config import config
 from api.core.middleware.timeout_middleware import TimeoutMiddleware
-from api.endpoint.technote import router as technote_router
-from api.utility.config import Config
-from api.utility.logging import LoggerWrapper as Logger
+from api.endpoint.auth import auth_router
+from api.endpoint.user_resource import user_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 
-def create_app():
-    config = Config.load()
-    logger = Logger.setup(config["logging"])
+def initialize_app():
+    app_context.initialize(config)
+    logger = app_context.get_logger(__name__)
     logger.info(f"Running application [{os.environ['ENV']}]")
 
     app = FastAPI()
     app.router.prefix = "/api/v1"
-    app.include_router(technote_router)
+    for router in [user_router, auth_router]:
+        app.include_router(router)
+
     app.add_middleware(TimeoutMiddleware, timeout=30)
     app.add_middleware(
         CORSMiddleware,
@@ -25,7 +28,7 @@ def create_app():
         allow_headers=["*"],
     )
 
-    return app, logger
+    return app
 
 
-app, logger = create_app()
+app = initialize_app()

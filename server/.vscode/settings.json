@@ -46,5 +46,9 @@
     },
     "editor.formatOnSave": true,
     "editor.tabSize": 4
-  }
+  },
+  "python.analysis.extraPaths": [
+    "./shareTech",
+    "./shareTech"
+  ]
 }

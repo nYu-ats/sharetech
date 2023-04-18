@@ -3,7 +3,7 @@ import random
 import string
 import time
 
-from api.utility.logging import LoggerWrapper as Logger
+from api.core.context import app_context
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.status import HTTP_504_GATEWAY_TIMEOUT
@@ -14,7 +14,7 @@ class TimeoutMiddleware(BaseHTTPMiddleware):
     def __init__(self, app: ASGIApp, timeout: int = 30) -> None:
         super().__init__(app)
         self.timeout = timeout
-        self.logger = Logger
+        self.logger = app_context.get_logger(__name__)
 
     async def dispatch(self, request, call_next) -> JSONResponse:
         try:

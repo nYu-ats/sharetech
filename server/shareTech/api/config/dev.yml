@@ -2,7 +2,7 @@ logging:
   version: 1
   formatters:
     default:
-      format: "[%(asctime)s][%(filename)s][%(funcName)s][%(process)d][%(name)s]: %(message)s"
+      format: "[%(asctime)s][%(process)d][%(name)s][%(filename)s][%(funcName)s]: %(message)s"
   handlers:
     file:
       class: logging.handlers.RotatingFileHandler
@@ -23,3 +23,12 @@ logging:
       level: DEBUG
       handlers: [file, console]
       propagate: false
+mongo:
+  user: dev-user
+  password: dev1234
+  host: sharetech_v3_mongo_1
+  port: 27017
+  db_name: dev
+redis:
+  host: sharetech_v3_redis_1
+  port: 6379
