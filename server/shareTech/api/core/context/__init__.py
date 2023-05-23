@@ -9,14 +9,17 @@ class AppContext:
         self._logger = None
         self._mongo_db = None
         self._redis = None
+        self._config = None
 
     def initialize(self, config: Config):
+        self._config = config
         self._logger = Logger.setup(config["logging"])
         logger = self._logger.get_child(__name__)
-        logger.info("Initialize MongoDb End")
+
+        logger.info("Initialize MongoDb")
         self._mongo_db = MongoDb(config["mongo"]).get_connection()
 
-        logger.info("Initialize Redis End")
+        logger.info("Initialize Redis")
         self._redis = Redis(config["redis"]).get_connection()
 
     def get_logger(self, name: str = "app_context"):
@@ -35,6 +38,9 @@ class AppContext:
 
     def redis_provider(self):
         return self._redis
+
+    def config_provider(self):
+        return self._config
 
 
 app_context = AppContext()

@@ -1,46 +1,47 @@
 from api.core.context import app_context
 from api.core.context.logging import Logger
-from api.core.extension.exception import AuthenticationFailed
-from api.endpoint.models import AuthenticateInfo, ErrorMessage, Token
-from api.services.user_service import UserService
-from api.services.user_service.interface import UserServiceIF
+from api.core.extension.exception import AutheException, InternalServerException
+from api.endpoint.models import Error, Token
+from api.services.authentication_service import AuthenticationService
+from api.services.authentication_service.interface import AuthenticationServiceIF
 from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
+from fastapi.security import OAuth2PasswordRequestForm
 
-auth_router = APIRouter(prefix="", tags=["auth"])
+auth_router = APIRouter(prefix="/auth", tags=["auth"])
 
 
 @auth_router.post(
-    "/login/token",
+    "/token",
     response_model=Token,
-    responses={status.HTTP_400_BAD_REQUEST: {"model": ErrorMessage}},
+    responses={
+        status.HTTP_401_UNAUTHORIZED: {"model": Error},
+        status.HTTP_500_INTERNAL_SERVER_ERROR: {"model": Error},
+    },
 )
 async def generate_token(
-    authenticate_info: AuthenticateInfo,
-    user_service: UserServiceIF = Depends(UserService),
+    auth_form: OAuth2PasswordRequestForm = Depends(),
+    auth_service: AuthenticationServiceIF = Depends(AuthenticationService),
     logger: Logger = Depends(app_context.logger_provider(__name__)),
 ):
     try:
-        token = await user_service.generate_token(
-            authenticate_info.user_unique_id, authenticate_info.password
+        token = await auth_service.generate_token(
+            auth_form.username, auth_form.password
         )
-        logger.info(f"{authenticate_info.user_unique_id} login succeeded")
+        logger.info(f"{auth_form.username} login succeeded")
         return {"token": token}
-    except AuthenticationFailed as e:
-        logger.warning(f"{authenticate_info.user_unique_id} login failed")
+    except AutheException as e:
         return JSONResponse(
-            status_code=status.HTTP_400_BAD_REQUEST, content={"message": e.message}
+            status_code=status.HTTP_401_UNAUTHORIZED, content=e.as_content()
         )
-    except Exception as e:
-        logger.error(f"Uncontrolled error:\n{e}")
-        raise e
+    except InternalServerException as e:
+        return JSONResponse(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, content=e.as_content()
+        )
 
 
-@auth_router.post(
-    "/logout/token", response_model=Token, responses={400: {"model": ErrorMessage}}
-)
+@auth_router.delete("/token", response_model=Token, responses={400: {"model": Error}})
 async def deactivate_token(
-    user_service: UserServiceIF = Depends(UserService),
     logger: Logger = Depends(app_context.logger_provider(__name__)),
 ):
     return {"token": "test"}

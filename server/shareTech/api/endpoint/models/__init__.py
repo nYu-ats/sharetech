@@ -1,6 +1,6 @@
 from typing import Generic, Optional, TypeVar
 
-from api.core.extension.option import UserIconKey
+from api.core.extension.option import Roles
 from pydantic import BaseModel
 from pydantic.generics import GenericModel
 
@@ -18,18 +18,15 @@ class Envelope(GenericModel, Generic[Model]):
     pagnation: Optional[Pagnation]
 
 
-class AuthenticateInfo(BaseModel):
-    user_unique_id: str
+class User(BaseModel):
+    email: str
     password: str
 
 
 class UserDB(BaseModel):
-    id: int
-    icon: UserIconKey
-    last_name: str
-    first_name: str
-    user_unique_id: str
-    role: str
+    id: str
+    email: str
+    role: Roles
     organization: str
 
 
@@ -37,5 +34,6 @@ class Token(BaseModel):
     token: str
 
 
-class ErrorMessage(BaseModel):
+class Error(BaseModel):
     message: str
+    error_code: int

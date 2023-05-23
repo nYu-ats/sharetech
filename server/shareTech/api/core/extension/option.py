@@ -1,11 +1,9 @@
 from enum import Enum
 
 
-class UserIconKey(Enum):
+class Roles(Enum):
 
-    DEFAULT = "USERICON"
-
-
-class TechnoteIconKey(Enum):
-
-    DEFAULT = "TECHNOTEICON"
+    ORGANIZATION_ADMIN = "ORGANIZATION_ADMIN"
+    ADMIN = "ADMIN"
+    COLLABORATOR_EDITOR = "COLLABORATOR_EDITOR"
+    COLLABORATOR_VIEWER = "COLLABORATOR_VIEWER"

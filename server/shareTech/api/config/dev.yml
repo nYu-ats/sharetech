@@ -1,3 +1,6 @@
+app:
+  timeout: 180
+  user_activation_url: http://localhost:8080/api/v1/users/activation/{}
 logging:
   version: 1
   formatters:
@@ -32,3 +35,12 @@ mongo:
 redis:
   host: sharetech_v3_redis_1
   port: 6379
+email:
+  MAIL_USERNAME: wooj8374
+  MAIL_PASSWORD: zxzqbjjkqdouadix
+  MAIL_FROM: wooj8374@gmail.com
+  MAIL_PORT: 587
+  MAIL_SERVER: smtp.gmail.com
+  MAIL_STARTTLS: true
+  MAIL_SSL_TLS: false
+  USE_CREDENTIALS: true

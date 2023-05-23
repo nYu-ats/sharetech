@@ -12,6 +12,8 @@ redis = "*"
 pyjwt = "*"
 passlib = "*"
 bcrypt = "*"
+python-multipart = "*"
+fastapi-mail = "*"
 
 [dev-packages]
 flake8 = "*"

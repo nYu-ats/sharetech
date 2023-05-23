@@ -5,8 +5,7 @@ from api.utility.dataclass import DataclassMixin
 
 
 @dataclass
-class User(DataclassMixin):
-    id: str
+class CurrentActiveUser(DataclassMixin):
     email: str
     role: Roles
     organization: str

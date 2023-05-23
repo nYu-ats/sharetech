@@ -11,7 +11,9 @@ class Redis:
 
     def _connect(self) -> None:
         if not self._connection:
-            self._connection = RedisClient(host=self.host, port=self.port, db=0)
+            self._connection = RedisClient(
+                host=self.host, port=self.port, db=0, decode_responses=True
+            )
 
     def get_connection(self) -> RedisClient:
         if not self._connection:

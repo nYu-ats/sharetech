@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 def initialize_app():
+    allow_origins = ["http://localhost:3030"]
     app_context.initialize(config)
     logger = app_context.get_logger(__name__)
     logger.info(f"Running application [{os.environ['ENV']}]")
@@ -19,12 +20,12 @@ def initialize_app():
     for router in [user_router, auth_router]:
         app.include_router(router)
 
-    app.add_middleware(TimeoutMiddleware, timeout=30)
+    app.add_middleware(TimeoutMiddleware, timeout=config["app"]["timeout"])
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],
+        allow_origins=allow_origins,
         allow_credentials=True,
-        allow_methods=["GET", "POST", "PUT"],
+        allow_methods=["GET", "POST", "PUT", "PATCH"],
         allow_headers=["*"],
     )
 
