@@ -1,5 +1,16 @@
 /** @type {import('next').NextConfig} */
-loadEnv(process.env.APP_ENV);
+
+// nextjsの仕様上、recoilのatomが再宣言されるため、そのエラー出力を抑止する
+const withInterceptStdout = require("next-intercept-stdout");
+module.exports = withInterceptStdout(
+  {
+    reactStrictMode: true,
+    swcMinify: false,
+    ignoreDuringBuilds: true,
+    staticPageGenerationTimeout: 1000,
+  },
+  (text) => (text.includes("Duplicate atom key") ? "" : text)
+);
 
 const nextConfig = {
   reactStrictMode: true,
@@ -16,3 +27,5 @@ function loadEnv(appEnv = "local") {
     process.env[key] = value;
   });
 }
+
+loadEnv(process.env.APP_ENV);
