@@ -5,7 +5,7 @@ import { ResearchIcon } from "./techNote";
 import { ReactNode } from "react";
 
 export const styling = (type: IconDrawType, props: IconProps): Array<string> => {
-  let style = [];
+  let style = [styles.icon];
   if (type === "FILL") {
     switch (props.color) {
       case "SITECOLOR":

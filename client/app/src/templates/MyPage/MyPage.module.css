@@ -1,7 +1,7 @@
 .wrapper{
-    @apply w-4/5;
+    @apply w-full;
     @apply px-[10%];
     @apply min-w-[1080px];
-    @apply box-content;
+    @apply box-border;
     @apply min-h-screen;
 }

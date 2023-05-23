@@ -1,0 +1,15 @@
+.wrapper{
+    @apply w-full;
+    @apply px-[10%];
+    @apply min-w-[1080px];
+    @apply box-border;
+    @apply h-full;
+    @apply flex;
+    @apply justify-center;
+    @apply flex-col;
+}
+
+.centerize{
+    @apply flex;
+    @apply justify-center;
+}

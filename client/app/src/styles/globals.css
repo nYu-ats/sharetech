@@ -10,3 +10,12 @@
       display: none; /* Chrome, Safari 対応 */
     }
   }
+html {
+  @apply h-full;
+}
+body{
+  @apply h-full;
+}
+div#__next{
+  @apply h-full;
+}

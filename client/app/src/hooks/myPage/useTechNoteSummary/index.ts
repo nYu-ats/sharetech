@@ -5,7 +5,7 @@ import {
   TechNoteSummaryHandler,
   FetchStatus,
 } from "./useTechNoteSummary.type";
-import { getTechNoteList } from "services/shareTech/TechNoteService";
+import { getTechNoteList } from "repositories/shareTech/technote";
 
 const useTechNoteSummary = ({
   chunkSize = 20,

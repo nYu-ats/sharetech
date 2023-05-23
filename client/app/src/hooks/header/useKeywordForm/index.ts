@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { keywordSearchMax } from "shared/constants/TextLength";
+import { keywordSearchMax } from "shared/constants/inputOptions";
 import { KeywordFormHandler, UseKeywordFormProps } from "./useKeywordForm.type";
 
 const useKeywordForm = (props: UseKeywordFormProps): [string, KeywordFormHandler] => {

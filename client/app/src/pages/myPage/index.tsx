@@ -2,13 +2,13 @@ import NormalTab from "components/molecules/tab/NormalTab/NormalTab";
 import MyTechNote from "components/organisms/cardGroup/MyTechNote/MyTechNote";
 import usePointer from "hooks/common/usePointer";
 import useTechNoteSummary from "hooks/myPage/useTechNoteSummary";
-import { FC } from "react";
 import MyPageTemplate from "templates/MyPage/MyPage.template";
 import { MyPageProps } from "./MyPage.type";
 import toast from "react-hot-toast";
-import { ApiError } from "shared/constants/Message";
+import { ApiError } from "shared/constants/messages";
+import { CustomNextPage } from "types/custom-next-page";
 
-const MyPage: FC<MyPageProps> = (props) => {
+const MyPage: CustomNextPage<MyPageProps> = (props) => {
   const [myTechNote, loadStatus, myTechNoteHandler] = useTechNoteSummary({
     author: ["test"],
     chunkSize: 1,
@@ -50,3 +50,4 @@ const MyPage: FC<MyPageProps> = (props) => {
 };
 
 export default MyPage;
+MyPage.requireAuth = true;
