@@ -1,0 +1,8 @@
+.container{
+    @apply w-fit;
+}
+
+.menu{
+    @apply hover:bg-whiteSmoke;
+    @apply transition duration-300;
+}

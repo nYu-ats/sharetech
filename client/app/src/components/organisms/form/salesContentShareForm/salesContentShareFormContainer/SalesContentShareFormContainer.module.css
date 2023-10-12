@@ -1,0 +1,57 @@
+.container{
+    @apply min-w-[50vw];
+}
+
+.closeBtn{
+    @apply flex;
+    @apply justify-end;
+}
+
+.title{
+    @apply py-4;
+}
+
+.head{
+    @apply pb-8;
+    @apply border-b;
+    @apply border-lightGray;
+    @apply font-bold;
+    @apply flex;
+    @apply justify-between;
+}
+
+.copies{
+    @apply flex;
+    @apply justify-end;
+}
+
+.copy{
+    @apply flex;
+    @apply justify-start;
+    @apply rounded;
+    @apply hover:bg-whiteSmoke;
+}
+
+.copyText{
+    @apply text-xs;
+}
+
+.submitBtn{
+    @apply text-xs;
+}
+
+.userAdd{
+    @apply pb-8;
+    @apply border-b;
+    @apply border-whiteSmoke;
+}
+
+.userDelete{
+    @apply pb-8;
+    @apply border-b;
+    @apply border-whiteSmoke;
+}
+
+.passwordUpdate{
+    @apply pb-8;
+}

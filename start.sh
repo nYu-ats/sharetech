@@ -5,7 +5,8 @@ export ENV=$1
 # Dockerコンテキストにコピーしても実行できるようにファイル権限を変更
 echo 'Add permission to entrypoint.sh'
 chmod +x ./client/entrypoint.sh
+chmod +x ./server/shareTech/entrypoint.sh
 
-# ビルド実行
+# コンテナビルド&アップ
 echo 'Start container'
 docker-compose up -d

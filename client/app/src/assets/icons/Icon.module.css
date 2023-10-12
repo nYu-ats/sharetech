@@ -30,6 +30,10 @@
     @apply stroke-lightGray;
 }
 
+.extraSmall{
+    @apply w-4;
+}
+
 .small{
     @apply w-7;
 }

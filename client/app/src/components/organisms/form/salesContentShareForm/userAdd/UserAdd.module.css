@@ -1,0 +1,14 @@
+.form{
+    @apply flex;
+    @apply justify-between;
+}
+
+.wrapper{
+    @apply flex;
+    @apply justify-start;
+    @apply py-2;
+}
+
+.submitBtn{
+    @apply text-xs;
+}

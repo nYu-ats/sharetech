@@ -1,0 +1,40 @@
+.wrapper{
+    @apply bg-whiteSmoke;
+    @apply px-1;
+    @apply py-10;
+}
+
+.input{
+
+}
+
+.preview{
+    @apply flex;
+    @apply justify-start;
+}
+
+.description{
+    @apply text-lightGray;
+    @apply text-sm;
+    @apply hover:cursor-pointer;
+    @apply w-fit;
+    @apply mr-4;
+}
+
+.fileNameWrapper{
+    @apply flex;
+    @apply justify-start;
+    @apply rounded-full;
+    @apply bg-white;
+    @apply px-2;
+}
+
+.fileName{
+    @apply text-sm;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}

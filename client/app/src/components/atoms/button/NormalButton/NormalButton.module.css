@@ -12,8 +12,8 @@
 
 .outline{
   @apply text-black;
-  @apply bg-white;
-  @apply hover:bg-white !important;
+  @apply bg-transparent;
+  @apply hover:bg-transparent !important;
 }
 
 .large {

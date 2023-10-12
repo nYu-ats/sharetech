@@ -1,7 +1,0 @@
-.main{
-    @apply w-[95vw];
-    @apply py-4 px-[2.5vw];
-    @apply m-0;
-    @apply bg-lightBlue;
-    @apply box-content;
-}

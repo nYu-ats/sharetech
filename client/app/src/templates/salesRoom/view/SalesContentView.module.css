@@ -1,0 +1,32 @@
+.wrapper{
+    @apply w-full;
+    @apply box-border;
+}
+
+.head{
+    @apply w-full;
+    @apply py-4;
+    @apply sticky;
+    @apply top-16;
+    @apply z-10;
+    @apply bg-lightBlue;
+}
+
+.actionPanel{
+}
+
+.title{
+    @apply my-4;
+    @apply font-bold;
+    @apply text-xl;
+}
+
+.tags{
+    @apply my-4;
+}
+
+.content{
+    @apply flex;
+    @apply justify-center;
+    @apply box-border;
+}

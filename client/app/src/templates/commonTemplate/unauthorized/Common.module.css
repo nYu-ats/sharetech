@@ -1,0 +1,10 @@
+.main{
+    @apply w-full;
+    @apply py-4 px-[2.5vw];
+    @apply min-w-[1080px];
+    @apply m-0;
+    @apply bg-lightBlue;
+    @apply box-border;
+    @apply h-full;
+    @apply min-h-screen;
+}

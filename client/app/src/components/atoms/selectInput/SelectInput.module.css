@@ -1,0 +1,14 @@
+.input{
+    @apply flex;
+    @apply justify-start;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.label{
+    @apply pl-2;
+}

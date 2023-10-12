@@ -1,0 +1,27 @@
+.formContainer{
+    @apply px-4;
+    @apply py-2;
+    @apply shadow-lg;
+    @apply min-w-fit;
+    @apply h-fit;
+    @apply w-1/2;
+    @apply bg-white;
+}
+
+.titleContainer{
+    @apply mb-4;
+    @apply text-center;
+}
+
+.title{
+    @apply text-2xl;
+    @apply font-bold;
+}
+
+.formBlock{
+    @apply mb-10;
+}
+
+.buttonContainer{
+    @apply text-center;
+}

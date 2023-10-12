@@ -1,0 +1,7 @@
+FROM mongo:6.0
+
+ENV TZ Asia/Tokyo
+
+# COPY ./initdata/ /initdata
+
+CMD ["mongod", "--bind_ip", "0.0.0.0" ]

@@ -1,0 +1,12 @@
+.wrapper{
+    @apply px-2;
+}
+
+.outline{
+    @apply border-2;
+    @apply border-whiteSmoke;
+}
+
+.paragraph{
+    @apply break-words;
+}

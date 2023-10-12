@@ -1,0 +1,7 @@
+FROM redis:6.2.6
+
+COPY ,/conf/redis.conf /etc/redis
+RUN mkdir -p /var/run/redis
+RUN mkdir -p /var/log/redis
+
+CMD [ "redis-server", "/usr/local/etc/redis/redis.conf" ]

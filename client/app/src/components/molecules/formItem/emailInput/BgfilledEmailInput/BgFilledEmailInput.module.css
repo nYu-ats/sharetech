@@ -1,0 +1,8 @@
+.input{
+    @apply rounded-full;
+    @apply bg-whiteSmoke;
+    @apply px-2;
+    @apply [&_input]:text-xs;
+    @apply [&_input]:bg-whiteSmoke;
+    @apply w-fit;
+}

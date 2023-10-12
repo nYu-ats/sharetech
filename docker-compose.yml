@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   client:
     env_file: ./client/.env
@@ -6,8 +6,9 @@ services:
       - ENV=${ENV}
       - USER_NAME=sharetech
       - APP_PATH=/sharetech/client
-      - LANG=C.UTF-8
-      - LANGUAGE='en_US:'
+      - LANGUAGE=ja_JP:ja
+      - LANG=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
       - WATCHPACK_POLLING=true
     build:
       context: .
@@ -17,9 +18,77 @@ services:
         APP_PATH: /sharetech/client
     volumes:
       - ./:/sharetech
+    working_dir: /sharetech/client
     command: /bin/sh -l
     tty: true
     stdin_open: true
     mem_limit: 2g
     ports:
       - 3030:3030
+
+  sharetech-api:
+    env_file: ./server/shareTech/.env
+    environment:
+      - ENV=${ENV}
+      - USER_NAME=sharetech
+      - APP_PATH=/sharetech/server/shareTech
+      - LANGUAGE=ja_JP:ja
+      - LANG=ja_JP.UTF-8
+      - TZ=Asia/Tokyo
+    build:
+      context: .
+      dockerfile: ./server/shareTech/Dockerfile.${ENV}
+      args:
+        USER_NAME: root
+        APP_PATH: /sharetech/server
+    volumes:
+      - ./:/sharetech
+    working_dir: /sharetech/server
+    command: /bin/sh -l
+    tty: true
+    stdin_open: true
+    mem_limit: 2g
+    ports:
+      - 8080:8080
+
+  mongo:
+    environment:
+      - ENV=${ENV}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_ROOT_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_ROOT_PASSWORD}
+      - MONGO_APP_USER=${MONGO_USER}
+      - MONGO_APP_PASSWORD=${MONGO_PASSWORD}
+    build:
+      context: ./mongodb
+      dockerfile: Dockerfile.${ENV}
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb/initdb.d:/docker-entrypoint-initdb.d
+      - mongo:/data/db
+      - mongo:/data/configdb
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_ROOT_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_ROOT_PASSWORD}
+    depends_on:
+      - mongo
+
+  redis:
+    image: redis:6.2.6
+    build:
+      context: ./redis
+      dockerfile: Dockerfile.${ENV}
+    ports:
+      - 6379:6379
+
+volumes:
+  mongo:

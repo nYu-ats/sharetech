@@ -1,0 +1,53 @@
+app:
+  timeout: 180
+  user_activation_url: http://localhost:8080/api/v1/users/activation/{}
+logging:
+  version: 1
+  formatters:
+    default:
+      format: "[%(asctime)s][%(process)d][%(name)s][%(filename)s][%(funcName)s]: %(message)s"
+  handlers:
+    file:
+      class: logging.handlers.RotatingFileHandler
+      level: DEBUG
+      formatter: default
+      filename: ./api/log/app.log
+      encoding: utf-8
+      maxBytes: 100000
+      backupCount: 10
+    console:
+      class: logging.StreamHandler
+      level: DEBUG
+      formatter: default
+      stream: ext://sys.stdout
+  loggers:
+    shareTech:
+      name: shareTech
+      level: DEBUG
+      handlers: [file, console]
+      propagate: false
+mongo:
+  user: dev-user
+  password: dev1234
+  host: sharetech_v3_mongo_1
+  port: 27017
+  db_name: dev
+redis:
+  host: sharetech_v3_redis_1
+  port: 6379
+gcs:
+  project: sharetech-dev
+  sa_path: ./api/credentials/sharetech-dev.json
+  bucket:
+    upload: sharetech-storage-upload
+    preview: sharetech-storage-preview
+    distribution: sharetech-storage-distribution
+email:
+  MAIL_USERNAME: wooj8374
+  MAIL_PASSWORD: zxzqbjjkqdouadix
+  MAIL_FROM: wooj8374@gmail.com
+  MAIL_PORT: 587
+  MAIL_SERVER: smtp.gmail.com
+  MAIL_STARTTLS: true
+  MAIL_SSL_TLS: false
+  USE_CREDENTIALS: true

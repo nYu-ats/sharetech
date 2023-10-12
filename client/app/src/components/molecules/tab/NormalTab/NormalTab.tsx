@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { NormalTabProps } from "./NormalTab.type";
 import styles from "./NormalTab.module.css";
-import { ContentsLoadFailed, ContentsPreparing } from "shared/constants/Message";
+import { ContentsLoadFailed, ContentsPreparing } from "shared/constants/messages";
 
 const NormalTab: FC<NormalTabProps> = (props) => {
   let content = (
@@ -32,7 +32,7 @@ const NormalTab: FC<NormalTabProps> = (props) => {
       <div
         key={index.toString()}
         className={tabNameStyle}
-        onClick={(e) => props.switchTab(index)}
+        onClick={(e) => props.switchTab(index + 1)}
       >
         <p>{item.tabName}</p>
       </div>

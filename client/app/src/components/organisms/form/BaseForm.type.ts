@@ -1,5 +1,6 @@
 import React from "react";
 
 export type BaseFormProps = {
-  onSubmit?: React.MouseEventHandler<HTMLButtonElement>;
+  isLoading?: boolean;
+  onSubmit?: React.FormEventHandler<HTMLFormElement>;
 };
