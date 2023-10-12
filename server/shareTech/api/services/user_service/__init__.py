@@ -113,11 +113,6 @@ class UserService(UserServiceIF):
                     activation_token.token
                 )
             )
-            print(
-                self._app_config["app"]["user_activation_url"].format(
-                    activation_token.token
-                )
-            )
 
             return User(
                 id=registered_user._id,
@@ -161,6 +156,57 @@ class UserService(UserServiceIF):
         except DatabaseException as e:
             raise e
         except ActivateTokenException as e:
+            raise e
+        except Exception:
+            stack_trace = traceback.format_exc()
+            self.logger.debug(stack_trace)
+            raise InternalServerException(detail=stack_trace)
+
+    async def create(
+        self,
+        email: str,
+        password: str,
+        role: str = Roles.COLLABORATOR_VIEWER.value,
+        is_active: bool = False,
+    ) -> User:
+        organization = EmailUtil.extract_domain(email)
+        hashed_password = Hasher.get_hash(password)
+        org_id = ""
+
+        try:
+            registered_org = await self._organization_repository.find_by_name(
+                organization
+            )
+            if registered_org:
+                self.logger.debug(f"{organization} has alresdy registered.")
+                if await self._user_repository.find_by_email(organization, email):
+                    self.logger.warning(f"{email} has already exist in {organization}")
+                    raise UserDuplicateException()
+                org_id = registered_org._id
+            else:
+                self.logger.debug(f"{organization} does not exist.")
+                registered_org = await self._organization_repository.create(
+                    organization, False
+                )
+                org_id = registered_org._id
+
+            registered_user = await self._user_repository.create(
+                organization,
+                org_id,
+                email,
+                hashed_password,
+                role,
+                is_active,
+            )
+            return User(
+                id=registered_user._id,
+                email=email,
+                role=role,
+                organization=organization,
+            )
+        except DatabaseException as e:
+            raise e
+        except UserDuplicateException as e:
             raise e
         except Exception:
             stack_trace = traceback.format_exc()

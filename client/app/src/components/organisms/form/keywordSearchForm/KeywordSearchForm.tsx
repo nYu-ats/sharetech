@@ -8,14 +8,13 @@ import { KeywordSearchFormProps } from "./KeywordSearchForm.type";
 
 const KeywordSearchForm: FC<KeywordSearchFormProps> = (props) => {
   return (
-    <div className={[styles.formContainer].join(" ")}>
+    <form className={[styles.formContainer].join(" ")} onSubmit={props.onSubmit}>
       <div className={[styles.separator, styles.verticalCenter].join(" ")}>
         <NormalButton
           type="submit"
           children={getIcon("SEARCH", { color: "LIGHTGRAY", size: "SMALL" })}
           outline={true}
           size="SMALL"
-          onClick={props.onSubmit}
         />
       </div>
       <div className={[styles.verticalCenter].join(" ")}>
@@ -30,7 +29,7 @@ const KeywordSearchForm: FC<KeywordSearchFormProps> = (props) => {
           />
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

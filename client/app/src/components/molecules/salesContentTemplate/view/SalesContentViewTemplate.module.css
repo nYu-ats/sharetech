@@ -1,0 +1,30 @@
+.container{
+    @apply w-full;
+    @apply px-4;
+    @apply py-4;
+    @apply bg-white;
+}
+
+.block{
+    @apply mb-8;
+    @apply w-full;
+}
+
+.title{
+    @apply bg-whiteSmoke;
+    @apply min-h-[36px];
+    @apply py-1;
+    @apply px-2;
+    @apply mb-4;
+    @apply text-lg;
+}
+
+.content{
+    @apply w-full;
+    @apply h-fit;
+    @apply min-h-[1rem];
+}
+
+.empty{
+    @apply h-8;
+}

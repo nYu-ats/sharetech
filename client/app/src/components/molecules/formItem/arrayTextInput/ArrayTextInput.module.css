@@ -1,0 +1,14 @@
+.arrayTextInput{
+    @apply flex;
+    @apply flex-wrap;
+}
+
+.inputField{
+    @apply flex;
+    @apply w-40;
+    @apply [&_input]:text-xs;
+    @apply border-dotted;
+    @apply border-blue;
+    @apply border-2;
+    @apply mr-1;
+}

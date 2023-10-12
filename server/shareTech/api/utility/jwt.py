@@ -7,7 +7,7 @@ import jwt
 
 class JwtUtil:
     _secret = os.environ["JWTSECRET"]
-    token_age = 60 * 60
+    token_age = 7 * 24 * 60 * 60
 
     @classmethod
     def generate_token(cls, **kwargs) -> str:

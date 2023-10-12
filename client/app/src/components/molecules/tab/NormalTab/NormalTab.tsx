@@ -32,7 +32,7 @@ const NormalTab: FC<NormalTabProps> = (props) => {
       <div
         key={index.toString()}
         className={tabNameStyle}
-        onClick={(e) => props.switchTab(index)}
+        onClick={(e) => props.switchTab(index + 1)}
       >
         <p>{item.tabName}</p>
       </div>

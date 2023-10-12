@@ -1,0 +1,26 @@
+.wrapper{
+    @apply w-full;
+    @apply h-full;
+    @apply flex;
+    @apply items-stretch;
+    @apply min-w-[1080px];
+    @apply min-h-screen;
+    @apply box-border;
+}
+
+.sideBar{
+    @apply box-border;
+}
+
+.main{
+    @apply w-full;
+    @apply box-border;
+    @apply bg-lightBlue;
+}
+
+.contents{
+    @apply pb-4 px-[2.5vw];
+    @apply m-0;
+    @apply box-border;
+    @apply bg-lightBlue;
+}

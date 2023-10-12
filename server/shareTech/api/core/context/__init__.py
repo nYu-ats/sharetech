@@ -1,4 +1,5 @@
 from api.core.context.config import Config
+from api.core.context.connection_pool.gcs import Gcs
 from api.core.context.connection_pool.mongodb import MongoDb
 from api.core.context.connection_pool.redis import Redis
 from api.core.context.logging import Logger
@@ -16,11 +17,14 @@ class AppContext:
         self._logger = Logger.setup(config["logging"])
         logger = self._logger.get_child(__name__)
 
-        logger.info("Initialize MongoDb")
         self._mongo_db = MongoDb(config["mongo"]).get_connection()
+        logger.info("Initialize MongoDb end")
 
-        logger.info("Initialize Redis")
         self._redis = Redis(config["redis"]).get_connection()
+        logger.info("Initialize Redis end")
+
+        self._gcs = Gcs(config["gcs"]).get_connection()
+        logger.info("Initialize Gcs Client end")
 
     def get_logger(self, name: str = "app_context"):
         return self._logger.get_child(name)
@@ -41,6 +45,9 @@ class AppContext:
 
     def config_provider(self):
         return self._config
+
+    def gcs_provider(self):
+        return self._gcs
 
 
 app_context = AppContext()

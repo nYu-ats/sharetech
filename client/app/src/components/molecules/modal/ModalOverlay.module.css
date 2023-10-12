@@ -1,0 +1,39 @@
+.overlay{
+    @apply flex;
+    @apply justify-center;
+    @apply items-center;
+    @apply h-screen;
+    @apply w-screen;
+    @apply fixed;
+    @apply top-0;
+    @apply left-0;
+    @apply z-40;
+}
+
+.bg{
+    @apply absolute;
+    @apply top-0;
+    @apply left-0;
+    @apply h-screen;
+    @apply w-screen;
+    @apply bg-black;
+    @apply opacity-50;
+}
+
+.content{
+    @apply box-border;
+    @apply w-fit;
+    @apply h-fit;
+    @apply min-w-[25%];
+    @apply min-h-[25%];
+    @apply max-w-[75%];
+    @apply max-h-[75%];
+    @apply overflow-scroll;
+    @apply bg-white;
+    @apply z-50;
+    @apply drop-shadow-xl;
+    @apply shadow-gray;
+    @apply flex;
+    @apply justify-center;
+    @apply p-4;
+}

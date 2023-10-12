@@ -6,11 +6,7 @@ export default {
   component: Component,
   args: {
     hasFooter: true,
-    children: (
-      <div className="w-full bg-white h-96">
-        <p>Sample</p>
-      </div>
-    ),
+    children: <div className="w-full bg-whiteSmoke animate-pulse h-96"></div>,
   },
 } as ComponentMeta<typeof Component>;
 

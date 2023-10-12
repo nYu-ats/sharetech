@@ -1,0 +1,46 @@
+.sideBar{
+    @apply w-fit;
+    @apply z-10;
+    @apply bg-deepBlue;
+    @apply box-border;
+    @apply h-full;
+}
+
+.fixTop{
+    @apply sticky;
+    @apply top-0;
+    @apply box-border;
+}
+
+.verticalCenterize{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.top{
+    @apply h-16;
+    @apply px-2;
+    @apply mb-8;
+}
+
+.bottom{
+}
+
+.siteLogo{
+    @apply mr-2;
+}
+
+.link{
+    @apply pl-2;
+    @apply py-4;
+    @apply text-white;
+    @apply hover:bg-blue;
+    @apply flex;
+    @apply transition duration-300;
+}
+
+.linkText{
+    @apply ml-2;
+    @apply my-auto;
+}

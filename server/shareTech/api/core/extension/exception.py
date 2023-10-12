@@ -61,3 +61,19 @@ class DatabaseException(InternalServerException):
 
     def __init__(self, message: str = None, detail=None):
         super().__init__(message, detail)
+
+
+class StorageUsableException(ShareTechCustomException):
+    err_code = 4090
+    message = "指定のStorage操作は不可能です"
+
+    def __init__(self, message: str = None, detail=None):
+        super().__init__(message, detail)
+
+
+class SalesContentDoesNotExist(ShareTechCustomException):
+    err_code = 2040
+    message = "指定のセールスコンテンツが存在しません"
+
+    def __init__(self, message: str = None, detail=None):
+        super().__init__(message, detail)

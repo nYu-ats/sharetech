@@ -1,0 +1,8 @@
+.selectBox{
+    @apply py-1;
+    @apply text-xs;
+    @apply border-2;
+    @apply border-whiteSmoke;
+    @apply focus:ring-0;
+    @apply focus:border-whiteSmoke;
+}

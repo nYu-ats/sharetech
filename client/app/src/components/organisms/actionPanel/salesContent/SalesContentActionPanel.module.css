@@ -1,0 +1,41 @@
+.actionPanel{
+    @apply w-full;
+    @apply flex;
+    @apply justify-between;
+}
+
+.left{
+    @apply flex;
+    @apply justify-start;
+}
+
+.returnBtn{
+    @apply mr-4;
+}
+
+.returnBtnText{
+    @apply text-xs;
+}
+
+.right{
+    @apply flex;
+    @apply justify-center;
+}
+
+.btn{
+    @apply [&_p]:hover:text-gray;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+    @apply mx-2;
+}
+
+.iconBtn{
+    @apply flex;
+    @apply justify-center;
+}
+
+.btnText{
+    @apply text-xs;
+    @apply px-1;
+}

@@ -1,0 +1,54 @@
+.wrapper{
+    @apply relative;
+}
+
+.toggleBtn{
+    @apply hover:cursor-pointer;
+    @apply w-fit;
+}
+
+.menus{
+    @apply absolute;
+    @apply top-1;
+    @apply left-12;
+    @apply shadow-lg;
+    @apply shadow-whiteSmoke;
+    @apply bg-white;
+    @apply border;
+    @apply border-whiteSmoke;
+}
+
+.menu{
+    @apply flex;
+    @apply justify-start;
+    @apply hover:cursor-pointer;
+    @apply px-2;
+    @apply py-1;
+    @apply min-w-[10rem];
+}
+
+.activeMenu{
+    @apply bg-whiteSmoke;
+}
+
+.menusOpen{
+    @apply block;
+}
+
+.menusClose{
+    @apply hidden;
+}
+
+.icon{
+    @apply mr-2;
+}
+
+.menuText{
+    @apply px-2;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}

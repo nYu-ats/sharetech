@@ -1,0 +1,32 @@
+.pdfView{
+    @apply w-full;
+    @apply box-border;
+    @apply p-4;
+}
+
+.pdfArea{
+    @apply max-h-[75vh];
+    @apply overflow-scroll;
+    @apply border-2;
+    @apply border-whiteSmoke;
+    @apply shadow-md;
+    @apply shadow-whiteSmoke;
+    @apply border;
+    @apply border-lightGray;
+}
+
+.pdfNav{
+    @apply flex;
+    @apply justify-center;
+    @apply my-4;
+}
+
+.pageIndicator{
+    @apply mx-4;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}

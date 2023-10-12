@@ -1,18 +1,18 @@
 import { useCallback, useState } from "react";
-import { UseToggleProps, ToggleHandler } from "./useToggle.type";
+import { UseToggleProps, ToggleHandler } from "./type";
 
 const useToggle = (props: UseToggleProps): [boolean, ToggleHandler] => {
   const [isActive, setActive] = useState(false);
 
-  const changeActive = useCallback(() => {
+  const toggle = useCallback(() => {
     const next = !isActive;
     setActive(next);
-  }, []);
+  }, [isActive]);
 
   return [
     isActive,
     {
-      changeActive,
+      toggle,
     },
   ];
 };

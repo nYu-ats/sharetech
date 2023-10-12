@@ -1,0 +1,62 @@
+.wrapper{
+    @apply p-4;
+    @apply bg-whiteSmoke;
+    @apply min-w-[50%];
+}
+
+.title{
+    @apply mb-4;
+    @apply font-bold;
+}
+
+.tags{
+    @apply mb-4;
+}
+
+.contentsWrapper{}
+
+.contentWrapper{
+    @apply bg-white;
+    @apply px-4;
+    @apply py-2;
+    @apply my-4;
+}
+
+.contentTitle{
+    @apply border-b;
+    @apply border-blue;
+    @apply min-h-[1rem];
+}
+
+.contentType{
+    @apply my-2;
+    @apply font-bold;
+}
+
+.content{
+    @apply my-1;
+}
+
+.contentText{
+    @apply border-2;
+    @apply border-whiteSmoke;
+    @apply px-2;
+}
+
+.fileNameWrapper{
+    @apply rounded-full;
+    @apply bg-whiteSmoke;
+    @apply px-2;
+    @apply text-sm;
+    @apply w-fit;
+}
+
+.btnWrapper{
+    @apply flex;
+    @apply justify-center;
+    @apply py-4;
+}
+
+.btn{
+    @apply mx-4;
+}

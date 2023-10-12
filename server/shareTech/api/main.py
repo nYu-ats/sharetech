@@ -4,6 +4,7 @@ from api.core.context import app_context
 from api.core.context.config import config
 from api.core.middleware.timeout_middleware import TimeoutMiddleware
 from api.endpoint.auth import auth_router
+from api.endpoint.sales_content_resource import sales_content_router
 from api.endpoint.user_resource import user_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,7 +18,7 @@ def initialize_app():
 
     app = FastAPI()
     app.router.prefix = "/api/v1"
-    for router in [user_router, auth_router]:
+    for router in [user_router, auth_router, sales_content_router]:
         app.include_router(router)
 
     app.add_middleware(TimeoutMiddleware, timeout=config["app"]["timeout"])

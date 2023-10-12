@@ -1,0 +1,14 @@
+.actionPanel{
+    @apply w-full;
+    @apply flex;
+    @apply justify-between;
+}
+
+.btn{
+    @apply [&_p]:hover:text-gray;
+}
+
+.btnText{
+    @apply text-xs;
+    @apply px-1;
+}

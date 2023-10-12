@@ -1,0 +1,32 @@
+.wrapper{
+    @apply mb-8;
+    @apply bg-white;
+}
+
+.title{
+    @apply p-4;
+}
+
+.content{
+    @apply bg-white;
+    @apply px-4;
+}
+
+.contentMenu{
+    @apply pb-2;
+    @apply flex;
+    @apply justify-start;
+}
+
+.verticalCenter{
+    @apply flex;
+    @apply flex-col;
+    @apply justify-center;
+}
+
+.contentTypeText{
+    @apply px-2;
+    @apply text-sm;
+    @apply text-gray;
+    @apply font-bold;
+}

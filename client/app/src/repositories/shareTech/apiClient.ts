@@ -1,30 +1,19 @@
 import axios, { Axios, AxiosHeaders } from "axios";
 
 class ShareTechApiClient {
-  ENDPOINT: string;
+  endpoint: string;
   client: Axios;
 
   private static instance: ShareTechApiClient;
 
   constructor() {
-    if (!process.env.NEXT_PUBLIC_SHARETECH_API_ENDPOINT) {
-      throw Error(
-        "You should set 'NEXT_PUBLIC_SHARETECH_API_ENDPOINT' as environment variable."
-      );
-    } else {
-      this.ENDPOINT = process.env.NEXT_PUBLIC_SHARETECH_API_ENDPOINT;
-    }
+    this.endpoint =
+      process.env.NEXT_PUBLIC_SHARETECH_API_ENDPOINT || "http://127.0.0.1:8080/api/v1";
     this.client = axios.create({
       timeout: Number(process.env.NEXT_PUBLIC_SHARETECH_API_TIMEOUT) || 3000,
     });
-    if (!process.env.NEXT_PUBLIC_SHARETECH_API_ORIGIN) {
-      throw Error(
-        "You should set 'NEXT_PUBLIC_SHARETECH_API_ORIGIN' as environment variable."
-      );
-    } else {
-      this.client.defaults.headers.common["Access-Control-Allow-Origin"] =
-        process.env.NEXT_PUBLIC_SHARETECH_API_ORIGIN;
-    }
+    this.client.defaults.headers.common["Access-Control-Allow-Origin"] =
+      process.env.NEXT_PUBLIC_SHARETECH_API_ORIGIN || "http://127.0.0.1:8080";
     this.client.defaults.headers.post["Content-Type"] =
       "application/json;charset=utf-8";
     this.setAccessToken();

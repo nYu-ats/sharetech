@@ -1,38 +1,43 @@
-import LoginPageTemplate from "templates/loginPage/LoginPage.template";
+import LoginPageTemplate from "templates/loginPage/Login.template";
 import { LoginPageProps, LoginFormProps } from "./LoginPage.type";
-import toast from "react-hot-toast";
-import { ApiError } from "shared/constants/messages";
 import LoginForm from "components/organisms/form/loginForm/LoginForm";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { Pages } from "shared/constants/pages";
 import { useAuth } from "hooks/common/useAuth";
 import { CustomNextPage } from "types/custom-next-page";
+import { useState } from "react";
 
 const LoginPage: CustomNextPage<LoginPageProps> = (props) => {
-  // if (loadStatus.isError) {
-  //   toast.error(ApiError, { id: "MyTechNote" });
-  // }
   const router = useRouter();
+  const nextPath = router.query.path
+    ? (router.query.path as string)
+    : Pages.salesRoom.top();
   const { status, signIn } = useAuth();
   const { register, handleSubmit } = useForm<LoginFormProps>();
-  const basicSignIn = async (data: LoginFormProps) => {
+  const [isLoading, setLoading] = useState(false);
+  const onSubmit = async (data: LoginFormProps) => {
+    setLoading(true);
     await signIn(data)
       .then((response) => {
-        router.push(Pages.myPage);
+        router.push(nextPath);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(e))
+      .finally(() => {
+        setLoading(false);
+      });
   };
   const loginForm = (
     <LoginForm
-      emailOptions={register("email", { required: true })}
-      passwordOptions={register("password", { required: true })}
-      onSubmit={handleSubmit(basicSignIn)}
+      emailOptions={register("email", { required: true, maxLength: 100 })}
+      passwordOptions={register("password", { required: true, maxLength: 30 })}
+      onSubmit={handleSubmit(onSubmit)}
+      isLoading={isLoading}
     />
   );
 
   if (status === "authenticated") {
-    router.push(Pages.myPage);
+    router.push(nextPath);
   }
 
   return <LoginPageTemplate loginForm={loginForm} />;

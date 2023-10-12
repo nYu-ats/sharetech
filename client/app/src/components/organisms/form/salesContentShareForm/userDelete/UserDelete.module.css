@@ -1,0 +1,12 @@
+.form{
+    @apply flex;
+    @apply justify-between;
+}
+
+.selection{
+    @apply [&_input]:text-xs;
+}
+
+.submitBtn{
+    @apply text-xs;
+}

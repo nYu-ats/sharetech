@@ -5,7 +5,7 @@ import { Pages } from "shared/constants/pages";
 const Index = () => {
   const router = useRouter();
   useEffect(() => {
-    router.replace(Pages.myPage);
+    router.replace(Pages.login);
   });
   return null;
 };

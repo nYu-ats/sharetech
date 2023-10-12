@@ -1,0 +1,26 @@
+.wrapper{
+    @apply w-full;
+    @apply box-border;
+}
+
+.head{
+    @apply w-full;
+    @apply py-4;
+    @apply sticky;
+    @apply top-16;
+    @apply z-10;
+    @apply bg-lightBlue;
+}
+
+.actionPanel{
+}
+
+.contentMetaForm{
+    @apply my-4;
+}
+
+.contentForm{
+    @apply flex;
+    @apply justify-center;
+    @apply box-border;
+}

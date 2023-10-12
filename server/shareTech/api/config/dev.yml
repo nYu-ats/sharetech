@@ -35,6 +35,13 @@ mongo:
 redis:
   host: sharetech_v3_redis_1
   port: 6379
+gcs:
+  project: sharetech-dev
+  sa_path: ./api/credentials/sharetech-dev.json
+  bucket:
+    upload: sharetech-storage-upload
+    preview: sharetech-storage-preview
+    distribution: sharetech-storage-distribution
 email:
   MAIL_USERNAME: wooj8374
   MAIL_PASSWORD: zxzqbjjkqdouadix

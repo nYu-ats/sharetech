@@ -25,6 +25,7 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
       await getCurrentUser()
         .then((response) => {
           CurrentUserStateModule.signIn({
+            id: response.result.id,
             email: response.result.email,
             role: response.result.role,
             organization: response.result.organization,
@@ -32,7 +33,6 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
           return response.result;
         })
         .catch((e) => {
-          console.log(e);
           CurrentUserStateModule.signOut();
           return null;
         });
@@ -51,7 +51,6 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
         }
       })
       .catch((e) => {
-        console.log(e);
         return false;
       });
 
@@ -62,6 +61,7 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
     const user = await getCurrentUser()
       .then((response) => {
         CurrentUserStateModule.signIn({
+          id: response.result.id,
           email: response.result.email,
           role: response.result.role,
           organization: response.result.organization,
@@ -69,18 +69,19 @@ const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
         return response.result;
       })
       .catch((e) => {
-        console.log(e);
         return null;
       });
 
     return user
       ? {
+          id: user.id,
           email: user.email,
           role: user.role,
           organization: user.organization,
         }
       : null;
   };
+
   const signOut = async () => {};
 
   const authModules = {

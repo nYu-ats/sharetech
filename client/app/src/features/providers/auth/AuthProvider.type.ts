@@ -14,6 +14,7 @@ export type AuthContextProps = {
 export type AuthStatus = "unauthenticated" | "loading" | "authenticated";
 
 export type User = {
+  id?: string;
   email?: string;
   role?: string;
   organization?: string;

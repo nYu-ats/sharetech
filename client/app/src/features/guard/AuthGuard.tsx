@@ -8,7 +8,12 @@ const AuthGuard = ({ children }: { children: React.ReactNode }): any => {
   const router = useRouter();
   useEffect(() => {
     if (status === "unauthenticated" && router.pathname !== Pages.login) {
-      router.push(Pages.login);
+      router.push({
+        pathname: Pages.login,
+        query: {
+          path: location.href,
+        },
+      });
     }
   }, [router, status]);
 
